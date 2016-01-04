@@ -1,6 +1,6 @@
 # Basic setup for simple site
 
-Uses:
+## Uses:
 - Gulp
 - HTML5 Boilerplate
 - Normalize
