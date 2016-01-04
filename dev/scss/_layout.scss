@@ -1,0 +1,32 @@
+/**
+ * GRID
+ * Include Susy map for base grid settings
+ */
+
+$susy: (
+  columns: 12,
+  container: 1260px,
+  global-box-sizing: border-box
+  // debug: (image: show)
+);
+
+@include border-box-sizing;
+
+// Test layout
+.wrapper {
+    @include container();
+}
+header {
+    @include span(12 of 12);
+    background-color: red;
+}
+main {
+    @include span(8 of 12);
+    background-color: lime;
+}
+aside {
+    @include span(3 of 12);
+}
+footer {
+    @include span(12 of 12);
+}

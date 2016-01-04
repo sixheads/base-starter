@@ -1,0 +1,68 @@
+/**
+ * 02 MIXINS
+ */
+
+// Media Queries
+@mixin bp($point) {
+    @if $point == sm {
+        @media (min-width: 550px) { @content; }
+    }
+    @else if $point == md {
+        @media (min-width: 760px) { @content; }
+    }
+    @else if $point == lg {
+        @media (min-width: 960px) { @content; }
+    }
+    @else if $point == xlg {
+        @media (min-width: 1260px) { @content; }
+    }
+    @else if $point == xxlg {
+        @media (min-width: 1400px) { @content; }
+    }
+}
+// usage: @include bp(md) { content here }
+
+
+// PX to EM function
+@function calc-em($target, $context: $font-size) {
+    @return ($target / $context) * 1em;
+}
+// usage: font-size: calc-em(14);
+
+// OR
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// vertically centre content
+@mixin vertical-align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+// usage: @include vertical-align-center;
